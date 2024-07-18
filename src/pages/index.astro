@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="i40Radio – Online">
+  <section class="HeroPage bg-center bg-cover">
+    <div class="scroller-text overflow-hidden size-96 pt-16 flex flex-col" data-speed="fast">
+      <p class="max-w-96 text-xl text-center font-semibold tag-list scroller__inner">
+        Una voz dijo: «¡Grita!».<br />
+        Y yo pregunté: «¿Qué debo gritar?».<br />
+        «Grita que los seres humanos son como la hierba.<br />
+        Su belleza se desvanece tan rápido como las flores en un campo.<br />
+        La hierba se seca y las flores se marchitan bajo el aliento del Señor.<br
+        />
+        Y así sucede también con los seres humanos.<br />
+        La hierba se seca y las flores se marchitan, pero la palabra de nuestro Dios
+        permanece para siempre».<br />
+        ¡Oh Sion, mensajera de buenas noticias, grita desde las cimas de los montes!
+        Grítalo más fuerte, oh Jerusalén.<br />
+        Grita y no tengas miedo.<br />
+        Diles a las ciudades de Judá: «¡Aquí viene su Dios!».
+      </p>
+    </div>
+  </section>
+</Layout>
+<style>
+  .HeroPage {
+    background-image: url(/Img/ScreenHome.webp);
+  }
+
+  .scroller-text[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      0deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
+    mask: linear-gradient(
+      0deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+  }
+
+  .scroller-text[data-animated="true"] .scroller__inner {
+    animation: scroll var(--_animation-duration, 60s) linear infinite;
+  }
+
+  .scroller-text[data-speed="fast"] {
+    --_animation-duration: 30s;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateY(calc(-50% - 0.5rem));
+    }
+  }
+</style>
+<script is:inline>
+  const scrollers = document.querySelectorAll(".scroller-text");
+
+  // If a user hasn't opted in for recuded motion, then we add the animation
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+
+  function addAnimation() {
+    scrollers.forEach((scroller) => {
+      // add data-animated="true" to every `.scroller` on the page
+      scroller.setAttribute("data-animated", true);
+
+      // Make an array from the elements within `.scroller-inner`
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      const scrollerContent = Array.from(scrollerInner.children);
+
+      // For each item in the array, clone it
+      // add aria-hidden to it
+      // add it into the `.scroller-inner`
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicatedItem);
+      });
+    });
+  }
+</script>

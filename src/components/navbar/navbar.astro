@@ -1,0 +1,19 @@
+---
+import AudioButton from '../audioButton/audiobutton.astro'
+---
+
+<header class="sticky top-0 bg-gradient-to-t from-orange-700 to-orange-600 w-full px-3 py-2 flex justify-center shadow-2xl overflow-hidden">
+  <nav class="max-w-6xl w-full flex items-center justify-between">
+    <div class="flex items-center">
+      <picture class="w-24 mr-6">
+        <img src="/Img/logo_white.webp" alt="i40Radio-logo-white-png" />
+      </picture>
+      <div class="flex gap-4 font-medium">
+        <a href="/">Inicio</a>
+        <a href="/podcast">Podcast</a>
+        <a href="/programación">Programación</a>
+      </div>
+    </div>
+    <AudioButton/>
+  </nav>
+</header>

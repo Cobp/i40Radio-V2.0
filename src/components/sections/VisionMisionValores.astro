@@ -1,0 +1,65 @@
+---
+const data = [
+  {
+    title: "VISIÓN",
+    description: "LO QUE QUEREMOS",
+    content:
+      "Ser un ministerio que alcance con el evangelio a la sociedad boliviana e hispana y edificar al pueblo cristiano con una comunicación ferviente, contemporánea, creativa y Cristo céntrica, de tal manera, que se logre un impacto e influencia con valores bíblicos, en su forma de pensar y vivir en la comunidad cristiana y secular.",
+  },
+  {
+    title: "MISIÓN",
+    description: "LO QUE HACEMOS",
+    content:
+      "Cumplir con la misión de Dios de predicar el evangelio para alcanzar a los no alcanzados y edificar al pueblo cristiano hispano parlante, a través de la radio y de las redes sociales.",
+  },
+  {
+    title: "VALORES",
+    punto1:
+      "Valoramos la predicación y la enseñanza bíblica con calidad, profundidad y sencillez en todos sus contenidos.",
+    punto2:
+      "Valoramos la creatividad en la difusión del mensaje del evangelio de Cristo.",
+    punto3:
+      "Valoramos la edificación espiritual de toda la comunidad cristiana a travéz de las predicaciones y enseñanzas bíblicas a través de la radio y las redes sociales.",
+    punto4:
+      "Valoramos el profesionalismo y el compromiso en proclamar el evangelio con fidelidad.",
+  },
+];
+---
+
+<section class="max-w-6xl flex flex-col gap-24">
+  {
+    data.map((item) => (
+      <div class="relative item flex text-base gap-8">
+        <div class="min-w-52">
+          <h2 class="text-2xl font-bold">{item.title}</h2>
+          {item.description && (
+            <h3 class="bg-orange-600 px-3 py-2 text-nowrap rounded-e-lg">
+              {item.description}
+            </h3>
+          )}
+        </div>
+
+        {item.content && <p class="pt-8">{item.content}</p>}
+        {item.punto1 && (
+          <ul class="list-disc ml-3">
+            <li>{item.punto1}</li>
+            <li>{item.punto2}</li>
+            <li>{item.punto3}</li>
+            <li>{item.punto4}</li>
+          </ul>
+        )}
+      </div>
+    ))
+  }
+</section>
+<style>
+  .item:not(:last-child):before {
+    background-color: rgba(255, 255, 255, .2);
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+</style>

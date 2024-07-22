@@ -1,7 +1,3 @@
----
-
----
-
 <div
   class="scroller-text overflow-hidden w-96 h-80 flex flex-col"
   data-speed="fast"
@@ -29,56 +25,54 @@
   </div>
 </div>
 <style>
-    .scroller-text[data-animated="true"] {
-      -webkit-mask: linear-gradient(
-        0deg,
-        transparent,
-        white 10%,
-        white 90%,
-        transparent
-      );
-      mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent);
+  .scroller-text[data-animated="true"] {
+    -webkit-mask: linear-gradient(
+      0deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
+    mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent);
+  }
+
+  .scroller-text[data-animated="true"] .scroller__inner {
+    animation: scroll var(--_animation-duration, 65s) linear infinite;
+  }
+
+  .scroller-text[data-speed="fast"] {
+    --_animation-duration: 35s;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateY(calc(-50%));
     }
-  
-    .scroller-text[data-animated="true"] .scroller__inner {
-      animation: scroll var(--_animation-duration, 65s) linear infinite;
-    }
-  
-    .scroller-text[data-speed="fast"] {
-      --_animation-duration: 35s;
-    }
-  
-    @keyframes scroll {
-      to {
-        transform: translateY(calc(-50%));
-      }
-    }
-  </style>
-  <script is:inline>
-    const scrollers = document.querySelectorAll(".scroller-text");
-  
-    // If a user hasn't opted in for recuded motion, then we add the animation
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      addAnimation();
-    }
-  
-    function addAnimation() {
-      scrollers.forEach((scroller) => {
-        // add data-animated="true" to every `.scroller` on the page
-        scroller.setAttribute("data-animated", true);
-  
-        // Make an array from the elements within `.scroller-inner`
-        const scrollerInner = scroller.querySelector(".scroller__inner");
+  }
+</style>
+<script is:inline>
+  const scrollers = document.querySelectorAll(".scroller-text");
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+
+  function addAnimation() {
+    scrollers.forEach((scroller) => {
+      scroller.setAttribute("data-animated", "true");
+
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      if (scrollerInner) {
         const scrollerContent = Array.from(scrollerInner.children);
-  
-        // For each item in the array, clone it
-        // add aria-hidden to it
-        // add it into the `.scroller-inner`
+
         scrollerContent.forEach((item) => {
           const duplicatedItem = item.cloneNode(true);
-          duplicatedItem.setAttribute("aria-hidden", true);
-          scrollerInner.appendChild(duplicatedItem);
+          if (duplicatedItem instanceof Element) {
+            duplicatedItem.setAttribute("aria-hidden", "true");
+            scrollerInner.appendChild(duplicatedItem);
+          }
         });
-      });
-    }
-  </script>
+      }
+    });
+  }
+</script>

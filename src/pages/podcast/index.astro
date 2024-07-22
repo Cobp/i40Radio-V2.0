@@ -1,0 +1,114 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/footer/Footer.astro";
+import IconSpotify from "../../icons/Spotify.astro";
+import IconArrowUpRight from "../../icons/ArrowUpRight.astro";
+---
+
+<Layout title="i40Radio – Podcast">
+  <main
+    class="flex flex-col items-center w-full bg-gradient-to-t to-orange-700 via-zinc-900 from-zinc-900 gap-16"
+  >
+    <div class="flex max-w-6xl w-full pt-24 px-3">
+      <div class="flex gap-6 z-10">
+        <picture class="relative size-52 rounded-xl overflow-hidden">
+          <img
+            class="max-w-full max-h-full object-cover"
+            src="/Img/logo_with_orange_bg.webp"
+            alt=""
+          />
+          <i class="absolute top-2 left-2 size-6">
+            <IconSpotify Class=""/>
+          </i>
+        </picture>
+        <div class="flex flex-col justify-end">
+          <h1>Podcast</h1>
+          <div>
+            <h2 class="text-7xl font-bold">I40 Radio</h2>
+            <h4 class="text-xl">Mensajera de Buenas Noticias</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative flex justify-center w-full px-3 gap-12">
+      <div
+        class="absolute top-0 left-0 w-full h-[800px] bg-gradient-to-t to-zinc-900/10 from-zinc-900 backdrop-blur-lg"
+      >
+      </div>
+      <div class="max-w-6xl w-full flex flex-col gap-6 z-10">
+        <div class="w-full my-20 flex justify-between">
+            <div class="relative flex flex-col max-w-2xl bg-white/10 backdrop-blur-lg p-4 gap-6 rounded-lg">
+                <p class="font-medium">
+                    Bienvenido a nuestro podcast
+                </p>
+                <p class="opacity-70">
+                    Donde encontrarás sermones edificantes, testimonios poderosos y música inspiradora. Únete a nosotros mientras exploramos la Palabra de Dios y compartimos mensajes que fortalecerán tu fe y te llenarán de esperanza.
+                </p>
+                <p class="opacity-70">
+                    ¡Escucha y deja que la luz de Cristo ilumine tu vida!
+                </p>
+            </div>
+            <a href="https://open.spotify.com/show/2S3cGw6i04i5haA3sX0dfz" target="_blank" class="flex flex-col gap-5 justify-center group mx-2 cursor-pointer">
+                <div
+                  class="w-full items-end justify-center flex"
+                >
+                <IconSpotify Class="group-hover:ease-in-out transition duration-700 group-hover:duration-1000 cursor-pointer object-center object-cover group-hover:scale-110 sm:group-hover:scale-150 w-20 sm:w-28 rotate-0  text-green-500 group-hover:-translate-y-4 group-hover:-skew-y-12 group-hover:skew-x-12"/>
+                  
+                </div>
+              
+                <div class="flex flex-row place-items-center place-content-between gap-6">
+                  <div class="flex flex-col gap-1">
+                    <p
+                      class="font-semibold text-lg sm:text-xl relative after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:absolute after:origin-bottom-left after:transform after:ease-in-out after:duration-500 cursor-pointer w-full after:w-full group-hover:after:scale-x-100 group-hover:after:origin-bottom-left after:bg-green-500 dark:after:bg-green-500 text-gray-600 dark:text-green-500"
+                    >
+                      Siguenos en Spotify
+                    </p>
+                    <p class="text-sm text-white/70">Mantente al día con nosotros</p>
+                  </div>
+                  <div class="-rotate-45 cursor-pointer">
+                    <IconArrowUpRight Class="text-white/70 font-semibold text-lg sm:text-xl transition-all duration-300 group-hover:transition-all group-hover:duration-300 group-hover:text-white fill-green-500 group-hover:bg-green-500 group-hover:fill-white group-hover:rotate-45 p-px rounded-full w-10 group-hover:rounded-full group-hover:animate-pulse"/>
+                  </div>
+                </div>
+              </a>
+        </div>
+        <iframe
+          src="https://open.spotify.com/embed/episode/4ZZhAhR3K31bEkwlk25zQQ?utm_source=generator&theme=0&t=0"
+          width="100%"
+          height="152"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+        <iframe
+          src="https://open.spotify.com/embed/episode/0I9jICYg6NQEh0WraFqN7T?utm_source=generator&theme=0"
+          width="100%"
+          height="152"></iframe>
+        <iframe
+          src="https://open.spotify.com/embed/episode/7Mk9mtkJimUj59nj66jlUA?utm_source=generator&theme=0"
+          width="100%"
+          height="152"></iframe>
+        <iframe
+          src="https://open.spotify.com/embed/episode/3hCNJsdpevIqxLSODqm9VE?utm_source=generator&theme=0"
+          width="100%"
+          height="152"></iframe>
+        <iframe
+          src="https://open.spotify.com/embed/episode/1jSIo9Y7QD0D4hy2CBnfn6?utm_source=generator&theme=0"
+          width="100%"
+          height="152"></iframe>
+        <a href="https://open.spotify.com/show/2S3cGw6i04i5haA3sX0dfz" target="_blank" class="group relative w-full flex items-center p-8 mt-32 bg-zinc-800 rounded-xl cursor-pointer hover:rounded-3xl transition-all duration-500 outline outline-transparent hover:outline-white/20 gap-8 hover:gap-10 shadow-2xl after:absolute after:-inset-1 after:content-[''] after:bg-gradient-to-br after:from-green-500 after:via-zinc-900 after:to-green-500 after:blur-3xl after:-z-10">
+          <div></div>
+            <i class="size-28 transition-all duration-500 group-hover:rotate-6 group-hover:scale-125">
+                <IconSpotify Class="text-green-500"/>
+            </i>
+            <div class="flex flex-col gap-2">
+                <h2 class="text-2xl font-semibold">Explora de estos y mas en Nuestro Podcast en Spotify</h2>
+                <p class="opacity-70">i40 Radio -Mensajera de buenas noticias</p>
+            </div>
+            <i class="absolute top-4 right-4 size-8 opacity-0 group-hover:translate-x-2 group-hover:-translate-y-2 group-hover:ease-in-out transition duration-700 group-hover:duration-1000 group-hover:opacity-100">
+                <IconArrowUpRight Class=""/>
+            </i>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

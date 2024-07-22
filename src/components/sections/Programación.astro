@@ -1,0 +1,192 @@
+---
+import IconSpotify from "../../icons/Spotify.astro";
+import IconMicrophone from "../../icons/Microphone.astro";
+const programming = [
+  {
+    image: "/programación/VDLV.webp",
+    title: "Voz de los Valles",
+    description:
+      "Presentamos estudios bíblicos en serie, diseñados para la meditación y aprendizajede de la doctrina de Cristo y compartidos por pastores de la Misión Bautista Internacional. Bienvenidos.",
+    timetable: {
+      days: "Lunes",
+      hour: "12 H00",
+    },
+  },
+  {
+    image: "/programación/VP.webp",
+    title: "Vida Plena",
+    description: "",
+    timetable: {
+      days: "Lunes",
+      hour: "12 H00",
+    },
+  },
+  {
+    image: "/programación/Colab.webp",
+    title: "Conexión de Vida",
+    description:
+      "Un devocional inspirado, que se encuentra entre los principales devocionales de habla hispana. Su contenido busca glorificar a Dios y llevar su mensaje fielmente su Palabra a todas las naciones. Una enseñanza sana y fiel de las Escrituras. Una producción de Estudios El Granero, en la voz del hermano Hernán Justiniano.",
+    timetable: {
+      days: "Todos los dias",
+      hour: "6 H00 - 00 H00",
+    },
+  },
+  {
+    image: "/programación/LQL.webp",
+    title: "Lo que leo",
+    description:
+      "En este espacio encontrarás libros que te desafiarán a crecer en la gracia y el conocimiento del Señor.",
+    timetable: {
+      days: "Miercoles y viernes",
+      hour: "8 H00 - 21 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/show/0vJk0kYtT2VnbUWtc98ELF?si=38331c8210614219&nd=1&dlsi=07886a0febcf4eb2",
+  },
+  {
+    image: "/programación/DEi40.webp",
+    title: "Diálogo en i40",
+    description:
+      "Este es un espacio de opinión sobre la realidad nacional einternacional. En el ámbito político, social y económico. Un análisis objetivo, profundo y contextual de las noticias que hacen noticia. Esto es Diálogo en i40, con Hugo Pérez Lizárraga.",
+    timetable: {
+      days: "Lunes-Miércoles-Viernes",
+      hour: "13 H00",
+    },
+    route: "livestream",
+  },
+  {
+    image: "/programación/LE.webp",
+    title: "La entrevista en i40",
+    description:
+      "En este espacio disfrutamos, nos reímos, aprendemos, recordamos; pero sobre todo preguntamos. Esto es La Entrevista en i40.",
+    timetable: {
+      days: "Miércoles y Viernes",
+      hour: "16 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/show/2S3cGw6i04i5haA3sX0dfz?si=cf931a40001140e1&nd=1&dlsi=c1e8e83d77bc43e1",
+  },
+  {
+    image: "/programación/LALS.webp",
+    title: "Luz a los simples",
+    description:
+      "Este programa responde de una manera directa, bíblica y práctica a las cuestiones de la vida, siempre basado en la palabra de Dios. Porque ella es Luz a los Simples.",
+    timetable: {
+      days: "Viernes",
+      hour: "19 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/show/2XZMgiDEILB0jewNvUDJZj?si=075ea2a25797456b&nd=1&dlsi=2db465b224ed4f0e",
+  },
+  {
+    image: "/programación/CED.webp",
+    title: "Caminando el dia",
+    description:
+      "Las circunstancias del día a día de nosotros, ciudadanos comunes ameritan una sencilla, pero honesta reflexión. Bienvenidos a CAMINANDO EL DÍA con Hugo Pérez Lizárraga.",
+    timetable: {
+      days: "Sábado",
+      hour: "09 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/show/6hfEWu9eH3UdXYuJSRy2KU?si=d448c3f949d64ea0&nd=1&dlsi=ec2a1f58b9cf433d",
+  },
+  {
+    image: "/programación/CCLF.webp",
+    title: "Comprometidos con la familia",
+    description:
+      "¡Creemos en la familia! ¡Creemos en el matrimonio para toda la vida! ¡Creemos en el amor hasta que la muerte nos separe! Y en el ¡Y vivieron felices para siempre! Creemos en el respeto y compromiso mutuo. Por eso estamos estamos COPROMETIDOS CON LA FAMILIA.",
+    timetable: {
+      days: "Sábado",
+      hour: "21 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/show/7lUIQPexOPbXTbrZEYlmoR?si=c961b26041454ea7&nd=1&dlsi=3a4ccc9596d14a10",
+  },
+  {
+    image: "/programación/DM.webp",
+    title: "Demos Gracias",
+    description:
+      "Solo Dios es digno de alabanza, Él es nuestro Creador y hemos sido creados para la gloria de su nombre. Este es un buen día para recordar y celebrar la bondad de Dios y su fidelidad, ¡Hagámoslo con acción de gracias!",
+    timetable: {
+      days: "Domingo",
+      hour: "08 H00 - 21 H00",
+    },
+    route: "spotify",
+    url: "https://open.spotify.com/episode/1ziIXz5KJA01w88ujQYajt?si=tlIUHrO-R7ySQDDT-6VQag&nd=1&dlsi=c6b5b2442d6540d3",
+  },
+];
+---
+
+<section class="flex flex-col gap-6">
+  {
+    programming.map((item) => (
+      <div class="items relative group py-4 flex select-none">
+        <picture class="min-w-40 size-40 rounded-lg overflow-hidden">
+          <img src={item.image} alt={`image-${item.title}`} />
+        </picture>
+        <div class="flex flex-col justify-between px-6 gap-12">
+          <div>
+            <h1 class="text-xl font-medium">{item.title}</h1>
+            <h3 class="text-sm opacity-70">
+              {item.timetable.days} desde las {item.timetable.hour}
+            </h3>
+          </div>
+          <h6 class="opacity-70">{item.description}</h6>
+        </div>
+        {item.route && (
+          <>
+            {item.route === "spotify" ? (
+              <a
+                href={item.url}
+                target="_blank"
+                class="absolute top-4 right-0 flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-32 overflow-hidden hover:text-green-500"
+              >
+                <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                  en Spotify
+                </span>
+                <i class="size-8 min-w-8">
+                  <IconSpotify Class="" />
+                </i>
+              </a>
+            ) : (
+              <div class="absolute top-4 right-0 flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-36 overflow-hidden">
+                <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                  solo en Vivo
+                </span>
+                <i class="size-8 p-1  min-w-8">
+                  <IconMicrophone />
+                </i>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    ))
+  }
+</section>
+<style>
+  .items {
+    view-timeline-name: --reveal;
+    animation-name: show;
+    animation-fill-mode: both;
+    animation-timeline: --reveal;
+    animation-range: 15% cover 25%;
+  }
+  .items:not(:last-child):before {
+    background-color: rgba(255, 255, 255, 0.2);
+    content: "";
+    position: absolute;
+    bottom: -6%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  @keyframes show {
+    from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

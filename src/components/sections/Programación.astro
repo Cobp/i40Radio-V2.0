@@ -120,73 +120,79 @@ const programming = [
 <section class="flex flex-col gap-6">
   {
     programming.map((item) => (
-      <div class="items relative group py-4 flex select-none">
-        <picture class="min-w-40 size-40 rounded-lg overflow-hidden">
-          <img src={item.image} alt={`image-${item.title}`} />
-        </picture>
-        <div class="flex flex-col justify-between px-6 gap-12">
-          <div>
-            <h1 class="text-xl font-medium">{item.title}</h1>
-            <h3 class="text-sm opacity-70">
-              {item.timetable.days} desde las {item.timetable.hour}
-            </h3>
+      <div class="items relative group flex flex-col select-none gap-4">
+        <div class="flex py-4">
+          <picture class="min-w-24 size-24 lg:min-w-40 lg:size-40 rounded-lg overflow-hidden">
+            <img src={item.image} alt={`image-${item.title}`} />
+          </picture>
+          <div class="flex flex-col justify-between px-6 gap-12">
+            <div>
+              <h1 class="text-xl font-medium">{item.title}</h1>
+              <h3 class="text-sm lg:text-base opacity-70">
+                {item.timetable.days} desde las {item.timetable.hour}
+              </h3>
+            </div>
+            <p class="hidden lg:block text-sm lg:text-base opacity-70">{item.description}</p>
           </div>
-          <h6 class="opacity-70">{item.description}</h6>
+          {item.route && (
+            <>
+              {item.route === "spotify" ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  class="absolute hidden lg:flex top-4 right-0 items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-32 overflow-hidden hover:text-green-500"
+                >
+                  <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                    en Spotify
+                  </span>
+                  <i class="size-8 min-w-8">
+                    <IconSpotify Class="" />
+                  </i>
+                </a>
+              ) : (
+                <div class="absolute hidden lg:flex top-4 right-0 items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-36 overflow-hidden">
+                  <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                    solo en Vivo
+                  </span>
+                  <i class="size-8 p-1  min-w-8">
+                    <IconMicrophone />
+                  </i>
+                </div>
+              )}
+            </>
+          )}
         </div>
-        {item.route && (
-          <>
-            {item.route === "spotify" ? (
-              <a
-                href={item.url}
-                target="_blank"
-                class="absolute top-4 right-0 flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-32 overflow-hidden hover:text-green-500"
-              >
-                <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
-                  en Spotify
-                </span>
-                <i class="size-8 min-w-8">
-                  <IconSpotify Class="" />
-                </i>
-              </a>
-            ) : (
-              <div class="absolute top-4 right-0 flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-36 overflow-hidden">
-                <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
-                  solo en Vivo
-                </span>
-                <i class="size-8 p-1  min-w-8">
-                  <IconMicrophone />
-                </i>
-              </div>
-            )}
-          </>
-        )}
+        <p class="lg:hidden text-sm lg:text-base opacity-70">{item.description}</p>
+        <div class="lg:hidden flex justify-end">
+          {item.route && (
+            <>
+              {item.route === "spotify" ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  class="flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-32 overflow-hidden hover:text-green-500"
+                >
+                  <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                    en Spotify
+                  </span>
+                  <i class="size-8 min-w-8">
+                    <IconSpotify Class="" />
+                  </i>
+                </a>
+              ) : (
+                <div class="flex items-center justify-end gap-2 p-1 pl-3 border border-white/10 rounded-xl w-10 transition-all ease-in-out duration-500 group-hover:w-36 overflow-hidden">
+                  <span class="text-nowrap text-sm opacity-0 transition-all ease-in-out duration-500 group-hover:opacity-100 text-white">
+                    solo en Vivo
+                  </span>
+                  <i class="size-8 p-1  min-w-8">
+                    <IconMicrophone />
+                  </i>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     ))
   }
 </section>
-<style>
-  .items {
-    view-timeline-name: --reveal;
-    animation-name: show;
-    animation-fill-mode: both;
-    animation-timeline: --reveal;
-    animation-range: 15% cover 25%;
-  }
-  .items:not(:last-child):before {
-    background-color: rgba(255, 255, 255, 0.2);
-    content: "";
-    position: absolute;
-    bottom: -6%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-  }
-  @keyframes show {
-    from {
-      opacity: 0.1;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-</style>

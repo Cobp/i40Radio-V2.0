@@ -46,7 +46,7 @@ const Carousel = () => {
 
   return (
     <div
-      className="group relative max-w-2xl w-full h-80 overflow-hidden rounded-xl"
+      className="group relative max-w-2xl w-full h-40 md:h-80 overflow-hidden rounded-xl"
       id="carousel"
     >
       <div

@@ -29,19 +29,19 @@ const data = [
 <div class="max-w-6xl flex flex-col gap-24">
   {
     data.map((item) => (
-      <div class="relative item flex text-base gap-8">
-        <div class="min-w-52">
+      <div class="relative items flex flex-col justify-center lg:flex-row text-base pb-12">
+        <div class="min-w-52 flex items-center gap-2 lg:flex-col lg:items-start">
           <h2 class="text-2xl font-bold">{item.title}</h2>
           {item.description && (
-            <h3 class="bg-orange-600 px-3 py-2 text-nowrap rounded-e-lg">
+            <h3 class="bg-orange-600 px-3 py-2 text-nowrap rounded-lg">
               {item.description}
             </h3>
           )}
         </div>
 
-        {item.content && <p class="pt-8">{item.content}</p>}
+        {item.content && <p class="opacity-70 pt-10 text-sm lg:text-base">{item.content}</p>}
         {item.punto1 && (
-          <ul class="list-disc ml-3">
+          <ul class="list-disc opacity-70 pl-3 pt-12 text-sm lg:text-base flex flex-col gap-4">
             <li>{item.punto1}</li>
             <li>{item.punto2}</li>
             <li>{item.punto3}</li>
@@ -52,31 +52,3 @@ const data = [
     ))
   }
 </div>
-<style>
-  .item {
-    view-timeline-name: --reveal;
-    animation-name: show;
-    animation-fill-mode: both;
-    animation-timeline: --reveal;
-    animation-range: 15% cover 25%;
-  }
-  .item:not(:last-child):before {
-    background-color: rgba(255, 255, 255, .2);
-    content: "";
-    position: absolute;
-    bottom: -50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-  }
-  @keyframes show { 
-    from { 
-      opacity: 0;
-      scale: 50%;
-    }
-    to {
-      opacity: 1;
-      scale: 100%;
-    }
-  }
-</style>

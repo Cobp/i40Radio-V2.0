@@ -1,5 +1,6 @@
 ---
-import Navbar from '../components/navbar/navbar.astro' 
+import { ViewTransitions } from "astro:transitions";
+import Navbar from '../components/navbar/Navbar.jsx' 
 import "@fontsource-variable/onest";
 interface Props {
   title: string;
@@ -19,14 +20,63 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Navbar/>
+    <Navbar client:load/>
     <slot />
+    <ViewTransitions />
   </body>
 </html>
-<style>
+<style is:global>
   body {
     font-family: "Onest Variable", sans-serif;
 	  background-color: #191919;
     color: #ffffff;
+  }
+  .items {
+    view-timeline-name: --reveal;
+    animation-name: show;
+    animation-fill-mode: both;
+    animation-timeline: --reveal;
+    animation-range: 15% cover 25%;
+  }
+  .items:not(:last-child):before {
+    background-color: rgba(255, 255, 255, 0.2);
+    content: "";
+    position: absolute;
+    bottom: -6%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  @keyframes show {
+    from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .scroller-text[data-animated="true"] {
+    -webkit-mask: linear-gradient(
+      0deg,
+      transparent,
+      white 10%,
+      white 90%,
+      transparent
+    );
+    mask: linear-gradient(0deg, transparent, white 20%, white 80%, transparent);
+  }
+
+  .scroller-text[data-animated="true"] .scroller__inner {
+    animation: scroll var(--_animation-duration, 65s) linear infinite;
+  }
+
+  .scroller-text[data-speed="fast"] {
+    --_animation-duration: 35s;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateY(calc(-50%));
+    }
   }
 </style>

@@ -1,7 +1,4 @@
 import { useState, useRef } from "react";
-import IconPlay from "../../icons/Play.astro";
-import IconPause from "../../icons/Pause.astro";
-import Loader from "../../icons/Loader.astro";
 
 const RadioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);

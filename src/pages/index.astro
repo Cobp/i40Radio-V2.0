@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TextSlider from "../components/textSlider/TextSlider.astro";
+import TextSlider from "../components/textSlider/TextSlider.jsx";
 import Carrousel from "../components/carrousel/Carrousel.jsx";
 import VisionMisionValores from "../components/sections/VisionMisionValores.astro";
 import Footer from "../components/footer/Footer.astro";
@@ -11,9 +11,9 @@ import Footer from "../components/footer/Footer.astro";
     <section
       class="HeroPage h-screen bg-fixed bg-top bg-cover pt-20 flex flex-col items-center justify-center p-3"
     >
-      <div class="max-w-6xl w-full flex items-end justify-between">
+      <div class="max-w-6xl w-full flex flex-col lg:flex-row items-end justify-between gap-8">
         <Carrousel client:load/>
-        <TextSlider />
+        <TextSlider client:load/>
       </div>
     </section>
     <section class="relative flex justify-center px-3 pt-28">

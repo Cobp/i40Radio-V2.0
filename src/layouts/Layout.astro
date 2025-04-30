@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import Navbar from '../components/navbar/Navbar.jsx' 
+import Navbar from "../components/navbar/Navbar.jsx";
 import "@fontsource-variable/onest";
 interface Props {
   title: string;
@@ -14,15 +14,27 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:image" content="https://ogcdn.net/e2d2dc2b-6f64-4829-aaac-89712f57a344/v1/myagency.com/Get%20On%20Board%20Meta%20Ads%20Campaigns/If%20you%E2%80%99re%20an%20online%20store%20owner%2C%20you%20should%20be%20using%20Meta%20Ads%20campaigns.%20Here%20is%20a%20three-tiered%20campaign%20strategy%20that%20will%20boost%20your%20online%20e-commerce%20sales./https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2Ff716bb4d-7519-4cb1-995c-44666f1365d0.jpg%3Ftoken%3Do8dgDwR3pI01lr5fDumlk8oFamNR0BvgH-BZW778ZA4%26height%3D900%26width%3D1200%26expires%3D33281973670/og.png" />
-
+    <meta property="og:image" content="/Img/og-image.png" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://i40-radio-v2-0.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="i40Radio – Online" />
+    <meta property="og:description" content="Astro description" />
+    <meta property="og:image" content="/Img/og-image.png" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="i40-radio-v2-0.vercel.app" />
+    <meta property="twitter:url" content="https://i40-radio-v2-0.vercel.app" />
+    <meta name="twitter:title" content="i40Radio – Online" />
+    <meta name="twitter:description" content="Astro description" />
+    <meta name="twitter:image" content="/Img/og-image.png" />
   </head>
   <body>
-    <Navbar client:load/>
+    <Navbar client:load />
     <slot />
     <ViewTransitions />
   </body>
@@ -30,7 +42,7 @@ const { title } = Astro.props;
 <style is:global>
   body {
     font-family: "Onest Variable", sans-serif;
-	  background-color: #191919;
+    background-color: #191919;
     color: #ffffff;
   }
   .items {

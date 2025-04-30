@@ -13,11 +13,13 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content="Astro description" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:image" content="https://ogcdn.net/e2d2dc2b-6f64-4829-aaac-89712f57a344/v1/myagency.com/Get%20On%20Board%20Meta%20Ads%20Campaigns/If%20you%E2%80%99re%20an%20online%20store%20owner%2C%20you%20should%20be%20using%20Meta%20Ads%20campaigns.%20Here%20is%20a%20three-tiered%20campaign%20strategy%20that%20will%20boost%20your%20online%20e-commerce%20sales./https%3A%2F%2Fopengraph.b-cdn.net%2Fproduction%2Fimages%2Ff716bb4d-7519-4cb1-995c-44666f1365d0.jpg%3Ftoken%3Do8dgDwR3pI01lr5fDumlk8oFamNR0BvgH-BZW778ZA4%26height%3D900%26width%3D1200%26expires%3D33281973670/og.png" />
+
   </head>
   <body>
     <Navbar client:load/>
